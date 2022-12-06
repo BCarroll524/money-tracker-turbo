@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import { sub } from "date-fns";
-import { db } from ".";
+import { db } from "./client";
 
 /**
  * We want to fill transactions on different days over the course of a couple months
