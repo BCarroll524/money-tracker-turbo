@@ -1,0 +1,61 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    String @id @default(cuid())
+  email String @unique
+  name  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  password     Password?
+  sources      Source[]
+  transactions Transaction[]
+}
+
+model Password {
+  hash   String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+}
+
+model Transaction {
+  id               String   @id @default(cuid())
+  name             String   @db.VarChar()
+  shortDescription String?  @map("short_description") @db.VarChar()
+  amount           Int
+  paymentSource    Source   @relation(fields: [sourceId], references: [id])
+  sourceId         String
+  type             String   @db.VarChar()
+  label            String   @db.VarChar() // want vs need
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Source {
+  id           String        @id @default(cuid())
+  name         String        @db.VarChar()
+  type         SourceType
+  balance      Int           @default(0)
+  transactions Transaction[]
+  userId       String
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+enum SourceType {
+  debit_card
+  credit_card
+  checking_account
+  savings_account
+}
