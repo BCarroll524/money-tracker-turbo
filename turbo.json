@@ -4,13 +4,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "dist/**",
-        ".next/**",
-        "build/**",
-        "public/dist/**",
-        "api/**"
-      ],
+      "outputs": ["dist/**", ".next/**", "build/**", "public/dist/**"],
       "env": ["NODE_ENV"]
     },
     "lint": {
