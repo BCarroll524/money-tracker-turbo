@@ -8,10 +8,11 @@ node_modules
 # testing
 coverage
 
-# next.js
-.next/
-out/
 build
+.cache
+.env
+.vercel
+.output
 
 # misc
 .DS_Store
@@ -31,3 +32,17 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# remix
+apps/**/build
+apps/**/public/build
+apps/**/api/index.js
+apps/**/api/index.js.map
+apps/**/api/_assets/
+apps/**/cypress/screenshots
+apps/**/cypress/videos
+apps/**/app/styles/tailwind.css
+apps/**/api/**/*
+
+.DS_Store
+**/*/.DS_Store
