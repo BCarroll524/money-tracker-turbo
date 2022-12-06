@@ -4,8 +4,12 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["public/build/**", "dist/**"],
+      "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "env": ["NODE_ENV"]
+    },
+    "remix-app#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["api/index.js", "api/build/**", "public/build/**"]
     },
     "lint": {
       "outputs": []
