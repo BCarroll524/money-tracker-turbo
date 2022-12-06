@@ -1,0 +1,57 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  font-family: "Asap", sans-serif;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+
+  --shadow-color: 0deg 0% 1%;
+  --shadow-elevation-low: 0.1px 1px 1.3px hsl(var(--shadow-color) / 0.15),
+    0.1px 1.7px 2.2px -0.6px hsl(var(--shadow-color) / 0.25),
+    0.2px 3.8px 5px -1.2px hsl(var(--shadow-color) / 0.35);
+  --shadow-elevation-medium: 0.1px 1px 1.3px hsl(var(--shadow-color) / 0.16),
+    0.2px 3.9px 5.1px -0.4px hsl(var(--shadow-color) / 0.24),
+    0.4px 8.5px 11.2px -0.8px hsl(var(--shadow-color) / 0.32),
+    1px 18.8px 24.7px -1.2px hsl(var(--shadow-color) / 0.4);
+}

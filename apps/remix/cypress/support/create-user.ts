@@ -26,7 +26,7 @@ async function createAndLogin(email: string) {
     request: new Request("test://test"),
     userId: user.id,
     remember: false,
-    redirectTo: "/",
+    redirectTo: "/home",
   });
 
   const cookieValue = response.headers.get("Set-Cookie");
